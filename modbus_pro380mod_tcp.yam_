@@ -161,17 +161,6 @@ modbus:
         state_class: total_increasing
         precision: 3
 
-      - name: "WP Eingespeiste Wirkenergie L1"
-        unique_id: "pro380_1_eingespeiste_wirkenergie_l1"
-        slave: 1
-        address: 24606
-        input_type: holding
-        data_type: float32
-        unit_of_measurement: "kWh"
-        device_class: energy
-        state_class: total_increasing
-        precision: 3
-
       - name: "WP Gesamt-Blindenergie"
         unique_id: "pro380_1_gesamt_blindenergie"
         slave: 1
