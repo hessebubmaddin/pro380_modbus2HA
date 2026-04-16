@@ -1,0 +1,401 @@
+modbus:
+  - name: dr134
+    type: tcp
+    host: 192.168.1xx.xxx #IP of your modbus adapter here
+    port: 502
+    timeout: 5
+
+    sensors:
+      ###########################
+      #   Heatpump Sensors      #
+      ###########################
+
+      - name: "WP Spannung L1"
+        unique_id: "pro380_1_spannung_l1"
+        slave: 1
+        address: 20482
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "V"
+        device_class: voltage
+        state_class: measurement
+        precision: 2
+
+      - name: "WP Spannung L2"
+        unique_id: "pro380_1_spannung_l2"
+        slave: 1
+        address: 20484
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "V"
+        device_class: voltage
+        state_class: measurement
+        precision: 2
+
+      - name: "WP Spannung L3"
+        unique_id: "pro380_1_spannung_l3"
+        slave: 1
+        address: 20486
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "V"
+        device_class: voltage
+        state_class: measurement
+        precision: 2
+
+      - name: "WP Netzfrequenz"
+        unique_id: "pro380_1_netzfrequenz"
+        slave: 1
+        address: 20488
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "Hz"
+        device_class: frequency
+        state_class: measurement
+        precision: 2
+
+      - name: "WP Strom L1"
+        unique_id: "pro380_1_strom_l1"
+        slave: 1
+        address: 20492
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "A"
+        device_class: current
+        state_class: measurement
+        precision: 2
+
+      - name: "WP Strom L2"
+        unique_id: "pro380_1_strom_l2"
+        slave: 1
+        address: 20494
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "A"
+        device_class: current
+        state_class: measurement
+        precision: 2
+
+      - name: "WP Strom L3"
+        unique_id: "pro380_1_strom_l3"
+        slave: 1
+        address: 20496
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "A"
+        device_class: current
+        state_class: measurement
+        precision: 2
+
+      - name: "WP Gesamt-Wirkleistung"
+        unique_id: "pro380_1_gesamt_wirkleistung"
+        slave: 1
+        address: 20498
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kW"
+        device_class: power
+        state_class: measurement
+        precision: 3
+
+      - name: "WP Gesamt-Blindleistung"
+        unique_id: "pro380_1_gesamt_blindleistung"
+        slave: 1
+        address: 20506
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "var"
+        state_class: measurement
+        precision: 1
+
+      - name: "WP Gesamt-Scheinleistung"
+        unique_id: "pro380_1_gesamt_scheinleistung"
+        slave: 1
+        address: 20514
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "VA"
+        state_class: measurement
+        precision: 1
+
+      - name: "WP Leistungsfaktor"
+        unique_id: "pro380_1_leistungsfaktor"
+        slave: 1
+        address: 20522
+        input_type: holding
+        data_type: float32
+        device_class: power_factor
+        state_class: measurement
+        precision: 3
+
+      - name: "WP Gesamt-Wirkenergie"
+        unique_id: "pro380_1_gesamt_wirkenergie"
+        slave: 1
+        address: 24576
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: total_increasing
+        precision: 3
+
+      - name: "WP Wirkenergie-Bezug"
+        unique_id: "pro380_1_wirkenergie_bezug"
+        slave: 1
+        address: 24588
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: total_increasing
+        precision: 3
+
+      - name: "WP Eingespeiste Wirkenergie"
+        unique_id: "pro380_1_eingespeiste_wirkenergie"
+        slave: 1
+        address: 24600
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: total_increasing
+        precision: 3
+
+      - name: "WP Eingespeiste Wirkenergie L1"
+        unique_id: "pro380_1_eingespeiste_wirkenergie_l1"
+        slave: 1
+        address: 24606
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: total_increasing
+        precision: 3
+
+      - name: "WP Gesamt-Blindenergie"
+        unique_id: "pro380_1_gesamt_blindenergie"
+        slave: 1
+        address: 24612
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kvarh"
+        state_class: total_increasing
+        precision: 3
+
+      - name: "WP Vorwärts-Blindenergie"
+        unique_id: "pro380_1_vorwaerts_blindenergie"
+        slave: 1
+        address: 24624
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kvarh"
+        state_class: total_increasing
+        precision: 3
+
+      - name: "WP Rückwärts-Blindenergie"
+        unique_id: "pro380_1_rueckwaerts_blindenergie"
+        slave: 1
+        address: 24636
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kvarh"
+        state_class: total_increasing
+        precision: 3
+
+      ####################################
+      #          House Sensors           #
+	  # (if you only have one meter      #
+	  # you only need one set of sensors)#
+      ####################################
+
+      - name: "Haus Spannung L1"
+        unique_id: "pro380_2_spannung_l1"
+        slave: 2
+        address: 20482
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "V"
+        device_class: voltage
+        state_class: measurement
+        precision: 2
+
+      - name: "Haus Spannung L2"
+        unique_id: "pro380_2_spannung_l2"
+        slave: 2
+        address: 20484
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "V"
+        device_class: voltage
+        state_class: measurement
+        precision: 2
+
+      - name: "Haus Spannung L3"
+        unique_id: "pro380_2_spannung_l3"
+        slave: 2
+        address: 20486
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "V"
+        device_class: voltage
+        state_class: measurement
+        precision: 2
+
+      - name: "Haus Netzfrequenz"
+        unique_id: "pro380_2_netzfrequenz"
+        slave: 2
+        address: 20488
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "Hz"
+        device_class: frequency
+        state_class: measurement
+        precision: 2
+
+      - name: "Haus Strom L1"
+        unique_id: "pro380_2_strom_l1"
+        slave: 2
+        address: 20492
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "A"
+        device_class: current
+        state_class: measurement
+        precision: 2
+
+      - name: "Haus Strom L2"
+        unique_id: "pro380_2_strom_l2"
+        slave: 2
+        address: 20494
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "A"
+        device_class: current
+        state_class: measurement
+        precision: 2
+
+      - name: "Haus Strom L3"
+        unique_id: "pro380_2_strom_l3"
+        slave: 2
+        address: 20496
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "A"
+        device_class: current
+        state_class: measurement
+        precision: 2
+
+      - name: "Haus Gesamt-Wirkleistung"
+        unique_id: "pro380_2_gesamt_wirkleistung"
+        slave: 2
+        address: 20498
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kW"
+        device_class: power
+        state_class: measurement
+        precision: 3
+
+      - name: "Haus Gesamt-Blindleistung"
+        unique_id: "pro380_2_gesamt_blindleistung"
+        slave: 2
+        address: 20506
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "var"
+        state_class: measurement
+        precision: 1
+
+      - name: "Haus Gesamt-Scheinleistung"
+        unique_id: "pro380_2_gesamt_scheinleistung"
+        slave: 2
+        address: 20514
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "VA"
+        state_class: measurement
+        precision: 1
+
+      - name: "Haus Leistungsfaktor"
+        unique_id: "pro380_2_leistungsfaktor"
+        slave: 2
+        address: 20522
+        input_type: holding
+        data_type: float32
+        device_class: power_factor
+        state_class: measurement
+        precision: 3
+
+      - name: "Haus Gesamt-Wirkenergie"
+        unique_id: "pro380_2_gesamt_wirkenergie"
+        slave: 2
+        address: 24576
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: total_increasing
+        precision: 3
+
+      - name: "Haus Wirkenergie-Bezug"
+        unique_id: "pro380_2_wirkenergie_bezug"
+        slave: 2
+        address: 24588
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: total_increasing
+        precision: 3
+
+      - name: "Haus Eingespeiste Wirkenergie"
+        unique_id: "pro380_2_eingespeiste_wirkenergie"
+        slave: 2
+        address: 24600
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: total_increasing
+        precision: 3
+
+      - name: "Haus Eingespeiste Wirkenergie L1"
+        unique_id: "pro380_2_eingespeiste_wirkenergie_l1"
+        slave: 2
+        address: 24606
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: total_increasing
+        precision: 3
+
+      - name: "Haus Gesamt-Blindenergie"
+        unique_id: "pro380_2_gesamt_blindenergie"
+        slave: 2
+        address: 24612
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kvarh"
+        state_class: total_increasing
+        precision: 3
+
+      - name: "Haus Vorwärts-Blindenergie"
+        unique_id: "pro380_2_vorwaerts_blindenergie"
+        slave: 2
+        address: 24624
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kvarh"
+        state_class: total_increasing
+        precision: 3
+
+      - name: "Haus Rückwärts-Blindenergie"
+        unique_id: "pro380_2_rueckwaerts_blindenergie"
+        slave: 2
+        address: 24636
+        input_type: holding
+        data_type: float32
+        unit_of_measurement: "kvarh"
+        state_class: total_increasing
+        precision: 3
