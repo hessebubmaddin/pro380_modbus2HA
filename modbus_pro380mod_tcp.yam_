@@ -348,17 +348,6 @@ modbus:
         state_class: total_increasing
         precision: 3
 
-      - name: "Haus Eingespeiste Wirkenergie L1"
-        unique_id: "pro380_2_eingespeiste_wirkenergie_l1"
-        slave: 2
-        address: 24606
-        input_type: holding
-        data_type: float32
-        unit_of_measurement: "kWh"
-        device_class: energy
-        state_class: total_increasing
-        precision: 3
-
       - name: "Haus Gesamt-Blindenergie"
         unique_id: "pro380_2_gesamt_blindenergie"
         slave: 2
